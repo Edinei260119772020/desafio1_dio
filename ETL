@@ -1,0 +1,35 @@
+import pandas as pd
+# Carregando os dados e armazenando em um DataFrame
+df_notas = pd.read_excel("notas.xlsx")
+# visualizando os dados
+print(df_notas)
+# Renomeia as colunas
+df_notas.rename(columns = {'ID':'ID_ALUNO','DISCIPLINA':'MATERIA','NT':'NOTAS'}, inplace = True)
+print(df_notas)
+# remover valores duplicados
+df_notas.drop_duplicates(['ID_ALUNO','MATERIA','NOTAS'],inplace = True)
+print(df_notas)
+# Visualizando a mediana dos dados
+df_notas['NOTAS'].median()
+# Preenchendo valores com a mediana dos dados
+df_notas['NOTAS'] = df_notas['NOTAS'].fillna((df_notas['NOTAS'].median()))
+print(df_notas)
+# Preenchendo valores com a média dos dados
+# Carregando o arquivo
+df_notas = pd.read_excel('notas.xlsx')
+df_notas.rename(columns = {'ID':'ID_ALUNO','DISCIPLINA':'MATERIA','NT':'NOTAS'}, inplace = True)
+df_notas.drop_duplicates(['ID_ALUNO','MATERIA','NOTAS'], inplace = True)
+# Visualizando a média dos dados
+df_notas['NOTAS'].mean()
+# Preenchendo valores com a média dos dados
+df_notas['NOTAS'] = df_notas['NOTAS'].fillna((df_notas['NOTAS'].mean()))
+df_notas
+# Preenchendo valores nulos com zero
+# Carregando o arquivo
+df_notas = pd.read_excel('notas.xlsx')
+df_notas.rename(columns = {'ID':'ID_ALUNO','DISCIPLINA':'MATERIA','NT':'NOTAS'}, inplace = True)
+df_notas.drop_duplicates(['ID_ALUNO','MATERIA','NOTAS'], inplace = True)
+df_notas
+# Preenchendo valores com valor zero
+df_notas['NOTAS'] = df_notas['NOTAS'].fillna(0)
+df_notas
